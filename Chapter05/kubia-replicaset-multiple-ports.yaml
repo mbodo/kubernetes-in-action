@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: kubia
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubia-multiple
+  template:
+    metadata:
+      labels:
+        app: kubia-multiple
+    spec:
+      containers:
+      - imagePullPolicy: Never
+        name: kubia
+        image: kubia-multiple
